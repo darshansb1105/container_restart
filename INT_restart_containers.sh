@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo -s
+sudo su
 mkdir -p /opt/restart_logs
 touch /opt/restart_logs/Restart_log.log
 cd /opt/restart_logs
