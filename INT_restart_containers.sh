@@ -9,6 +9,8 @@ USERNAME=$(whoami)
 
 mkdir -p /home/$USERNAME/logs
 touch /home/$USERNAME/logs/Restart_log.log
+cd /home/$USERNAME/logs
+chmod 755 ./Restart_log.log
 
 # Remote destination folder
 REMOTE_DESTINATION="/home/$USERNAME/logs"
