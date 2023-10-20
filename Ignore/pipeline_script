@@ -1,0 +1,27 @@
+pipeline {
+    agent {
+            label 'containers'
+        }
+    parameters {
+        string(name: 'CONTAINER_NAMES', defaultValue: 'Enter container names to restart', trim: true)
+    }
+    environment {
+        SCRIPT_REPO = 'https://github.com/darshansb1105/container_restart.git'  
+    }
+
+    stages {
+        stage('Git checkout') {
+            steps {
+                script{
+                def container_names= params.CONTAINER_NAMES 
+                sh "git init"
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[credentialsId: 'JenkinsKey', url: "${SCRIPT_REPO}"]]])
+                sh "chmod 755 ./INT_restart_containers.sh"
+                sh "./INT_restart_containers.sh ${container_names}"
+                }
+                    
+            }
+            
+        }
+    }
+}
