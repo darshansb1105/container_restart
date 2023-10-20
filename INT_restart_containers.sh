@@ -7,14 +7,14 @@ REMOTE_SERVER="192.168.1.2"
 MACHINE_NAME=$(uname -n)
 USERNAME=$(whoami)
 
-mkdir -p /root/logs
-touch /root/logs/Restart_log.log
+mkdir -p /home/$USERNAME/logs
+touch /home/$USERNAME/logs/Restart_log.log
 
 # Remote destination folder
-REMOTE_DESTINATION="/root/logs"
+REMOTE_DESTINATION="/home/$USERNAME/logs"
 
 # Log file location on the remote machine
-LOG_FILE="/root/logs/Restart_log.log"
+LOG_FILE="/home/$USERNAME/Restart_log.log"
 
 # Check if container names are provided as arguments
 if [ $# -eq 0 ]; then
