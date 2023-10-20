@@ -1,5 +1,5 @@
 #!/bin/bash
-
+sudo -s
 mkdir -p /opt/restart_logs
 touch /opt/restart_logs/Restart_log.log
 cd /opt/restart_logs
@@ -20,13 +20,13 @@ get_current_datetime() {
 }
 
 # Log machine name, username, and current date/time
-echo "Current Date/Time: $(get_current_datetime)" >> "$LOG_FILE"
+echo "Current Date/Time: $(get_current_datetime)" >> $LOG_FILE
 
 
 # Loop through the provided container names and perform actions while logging
 for CONTAINER_NAME in "$@"; do
   # Log the activity
-  echo "Restarting container: $CONTAINER_NAME" >> "$LOG_FILE"
+  echo "Restarting container: $CONTAINER_NAME" >> $LOG_FILE
   # Perform the action on the container (e.g., Docker restart)
   docker restart "$CONTAINER_NAME"
 done
