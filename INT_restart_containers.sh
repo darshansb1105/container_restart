@@ -1,4 +1,4 @@
-#!/bin/sudo bash
+#!/bin/bash
 
 touch /opt/restart_logs/Restart_log.log
 cd /opt/restart_logs
