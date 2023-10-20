@@ -1,9 +1,7 @@
-#!/bin/bash
-sudo su
-mkdir -p /opt/restart_logs
+#!/bin/sudo bash
+
 touch /opt/restart_logs/Restart_log.log
 cd /opt/restart_logs
-chmod 755 ./Restart_log.log
 
 # Log file location on the remote machine
 LOG_FILE="/opt/restart_logs/Restart_log.log"
